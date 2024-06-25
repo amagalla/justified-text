@@ -7,7 +7,7 @@
     "start": "npm run build && node dist/app/lib/server.js",
     "dev": "nodemon -L app/lib/server.ts",
     "client": "webpack serve --config webpack/webpack.config.js --env env=dev",
-    "app": "concurrently \"npm run dev\" \"npm run client\"",
+    "app": "npm i && concurrently \"npm run dev\" \"npm run client\"",
     "server-build": "tsc && cp -r ./app/lib/config ./dist/",
     "build": "npm i && webpack --config webpack/webpack.config.js --env env=prod && npm run server-build",
     "install-app": "docker-compose build",
