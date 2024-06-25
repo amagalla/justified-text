@@ -34,7 +34,7 @@ app.use(cors());
 app.use("/admin/swagger", swaggerUI.serve, swaggerUI.setup(docs));
 
 // Serve static files from the 'build' directory
-app.use(express.static(path.join(__dirname, '../build')));
+app.use(express.static(path.join(__dirname, '../../build')));
 
 // routes imports
 import setupRoutes from "./routes/setupRoutes";
@@ -43,9 +43,11 @@ setupRoutes(app);
 
 // Default route to serve index.html (for client-side routing in SPA)
 app.get('*', (req: Request, res: Response) => {
-  res.sendFile(path.join(__dirname, "..", 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, '../../build', 'index.html'));
 });
 
 app.use(errorhandler);
 
 app.listen(PORT, () => console.log(`Running on port ${PORT}`));
+
+export default app;
