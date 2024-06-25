@@ -1,6 +1,12 @@
-import React from "react";
-import "./styles/styles.scss";
+import React from 'react';
+import JustifyForm from './pages/JustifyForm';
 
-export const App = () => {
-  return <h1>Hello React</h1>;
+const App: React.FC = () => {
+  return (
+    <div>
+      <JustifyForm />
+    </div>
+  );
 };
+
+export default App;
