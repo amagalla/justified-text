@@ -51,7 +51,7 @@ Hello, thank you for checking out my Justified Text application. This applicatio
 ## Use Swagger UI
 1. Run the server through Docker or Locally
 
-2. Go to `http://localhost:3000/admin/swagger
+2. Go to `http://localhost:3000/admin/swagger`
 
 3. Run values through Swagger UI
 

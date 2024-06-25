@@ -78,7 +78,7 @@ describe('Justify API Endpoint', () => {
         });
     });
     
-    it('should pass with only one work in line and length input of 50', (done) => {
+    it('should pass with only one word in line and length input of 50', (done) => {
       const justificationData = {
         line: 'hello',
         length: '50'
@@ -167,7 +167,7 @@ describe('Justify API Endpoint', () => {
         });
     });
     
-    it('should not pass with no line input and no length input', (done) => {
+    it('should not pass with non-string input and non-string length input', (done) => {
       const justificationData = {
         line: 58,
         length: 45,
@@ -213,8 +213,8 @@ describe('Justify API Endpoint', () => {
     
     it('should not pass with line input is equal to the length input', (done) => {
       const justificationData = {
-        line: 'hello',
-        length: '5',
+        line: 'hello world',
+        length: '11',
       };
   
       chai.request(app)
@@ -225,10 +225,9 @@ describe('Justify API Endpoint', () => {
             return done(err);
           }
   
-          expect(res).to.have.status(200);
-          expect(res.text).to.be.a('string');
-          expect(res.text.length).to.equal(5);
-          expect(res.text).to.deep.equal('hello');
+          expect(res).to.have.status(400);
+          expect(res.body).to.be.a('object');
+          expect(res.body).to.deep.equal({ error: 'Length is not large enough' });
   
           done();
         });
